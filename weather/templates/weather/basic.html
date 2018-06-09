@@ -77,11 +77,12 @@
     <div class = "container">
     <div class = "row">
     {% for city_weather in weather_data %}
+
     <div class="container col-3" id = "data">
       <div class="media">
       <img class="mr-3" src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="Generic placeholder image">
         <div class="media-body">
-          <h5 class="mt-0">{{ city_weather.city }}</h5>
+          <h5 class="mt-0"><a href="{% url 'weatherapp:details' name=city_weather.city %}">{{ city_weather.city }}</a></h5>
            <p>{{ city_weather.temperature }}° C</p>
            <p>{{ city_weather.description }}</p>
         </div>

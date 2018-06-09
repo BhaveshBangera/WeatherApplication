@@ -5,5 +5,5 @@ app_name = 'weatherapp'
 
 urlpatterns = [
     path('', views.index, name="index"),
-    #path('example', views.example)
+    path('<name>', views.details, name="details")
 ]
