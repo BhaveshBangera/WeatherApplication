@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <title>Weather Application</title>
+    <style>
+      #heading{
+        height: 50px;
+        background-color: #0000CD;
+        color: white;
+        text-align: center;
+
+      }
+      #headindex{
+        text-align: center;
+        color: #0000CD;
+      }
+      #data{
+        width: 400px;
+        border-style: groove;
+        border-width: 3px;
+      }
+      #cityform{
+        width: 1200px;
+        margin-left: 103px;
+      }
+      #cdt{
+        margin-left: 330px;
+      }
+      #inter{
+        margin-top: 3px;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container" id="heading">
+      <b><h2 id = "inter">Welcome To Weather Application</h2></b>
+    </div>
+
+    <br>
+    <br>
+
+    <div class = "container" id = "cityform">
+    <form method = "POST" class="form-inline">
+      {% csrf_token %}
+      <div class="form-group mb-2">
+        <label for="citytext">Enter City :- </label>
+        <!--<input type="text" class="form-control" id="citytext" placeholder="City Name">-->
+      </div>
+      <div class="form-group mx-sm-3 mb-2">
+        {{ form.name }}
+      </div>
+      <button type="submit" class="btn btn-primary mb-2">Add City</button>
+      <!-- <div class="form-group mx-sm-3 mb-2" id = "cdt"> -->
+        <i id = "cdt">Current Date and Time :- {{ total }}</i>
+      <!-- </div> -->
+      <br><br>
+    </form>
+    </div>
+
+    <br>
+
+    <div>
+      <h3 id="headindex">List of Cities Added</h3>
+    </div>
+
+    <br>
+
+    <div class = "container">
+    <div class = "row">
+    {% for city_weather in weather_data %}
+    <div class="container col-3" id = "data">
+      <div class="media">
+      <img class="mr-3" src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="Generic placeholder image">
+        <div class="media-body">
+          <h5 class="mt-0">{{ city_weather.city }}</h5>
+           <p>{{ city_weather.temperature }}° C</p>
+           <p>{{ city_weather.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+    </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+</html>
