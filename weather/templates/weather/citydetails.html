@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <title>Weather Application</title>
+    <style>
+      #heading{
+        height: 50px;
+        background-color: #0000CD;
+        color: white;
+        text-align: center;
+
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container" id="heading">
+      <b><h2 id = "inter">Welcome To Weather Application</h2></b>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="container">
+      <h3><a href="{% url 'weatherapp:index' %}">Back to index</a></h3>
+    </div>
+
+    <br>
+
+    <div class = "container">
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Detail</th>
+          <th scope="col">Values</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-primary">
+          <th scope="row">City</th>
+          <td>{{ city_details.city }}</td>
+        </tr>
+        <tr class="table-warning">
+          <th scope="row">Temperature</th>
+          <td>{{ city_details.temperature }}° C</td>
+        </tr>
+        <tr class="table-primary">
+          <th scope="row">Minimum Temperature</th>
+          <td>{{ city_details.mintemp }}° C</td>
+        </tr>
+        <tr class="table-warning">
+          <th scope="row">Maximum Temperature</th>
+          <td>{{ city_details.maxtemp }}° C</td>
+        </tr>
+        <tr class="table-success">
+          <th scope="row">Longitude</th>
+          <td>{{ city_details.longitude }}</td>
+        </tr>
+        <tr class="table-warning">
+          <th scope="row">Latitude</th>
+          <td>{{ city_details.latitude }}</td>
+        </tr>
+        <tr class="table-primary">
+          <th scope="row">Description</th>
+          <td>{{ city_details.description }}</td>
+        </tr>
+        <tr class="table-warning">
+          <th scope="row">Pressure</th>
+          <td>{{ city_details.pressure }} mb</td>
+        </tr>
+        <tr class="table-primary">
+          <th scope="row">Humidity</th>
+          <td>{{ city_details.humidity }}</td>
+        </tr>
+        <tr class="table-warning">
+          <th scope="row">Visibility</th>
+          <td>{{ city_details.visibility }}</td>
+        </tr>
+        <tr class="table-primary">
+          <th scope="row">Wind-Speed</th>
+          <td>{{ city_details.windspeed }} mph</td>
+        </tr>
+        <tr class="table-warning">
+          <th scope="row">Wind-Degree</th>
+          <td>{{ city_details.winddegree }}°</td>
+        </tr>
+        <tr class="table-primary">
+          <th scope="row">Country</th>
+          <td>{{ city_details.country }}</td>
+        </tr>
+        <tr class="table-warning">
+          <th scope="row">Sunrise</th>
+          <td>{{ city_details.sunrise }}</td>
+        </tr>
+        <tr class="table-primary">
+          <th scope="row">Sunset</th>
+          <td>{{ city_details.sunset }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+    <br>
+
+    <br>
+    <br>
+    <br>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+</html>
